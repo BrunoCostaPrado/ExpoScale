@@ -1,0 +1,45 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "tsx watch --env-file .env src/app.ts",
+		"start": "prisma migrate deploy && node build/app.js",
+		"mig": "prisma migrate dev",
+		"lint": "oxlint . && prettier --write .",
+		"std": "prisma studio --browser none",
+		"res": "prisma migrate reset",
+		"erd": "prisma generate && oxlint . && prettier --write .",
+		"push": "prisma db push",
+		"del": "tsx delete.ts",
+		"types": "pnpm del && tsc && oxlint . && prettier --write .",
+		"build": "pnpm del && tsc && node esbuild.mjs && oxlint . && prettier --write . "
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@mermaid-js/mermaid-cli": "^10.8.0",
+		"@types/node": "^20.12.5",
+		"del": "^7.1.0",
+		"devalue": "^4.3.2",
+		"esbuild": "^0.20.2",
+		"oxlint": "^0.2.15",
+		"prettier": "^3.2.5",
+		"prisma": "^5.12.1",
+		"prisma-docs-generator": "^0.8.0",
+		"prisma-erd-generator": "^1.11.2",
+		"tslib": "^2.6.2",
+		"tsx": "^4.7.2",
+		"typescript": "^5.4.4"
+	},
+	"dependencies": {
+		"@fastify/cors": "^9.0.1",
+		"@prisma/client": "^5.12.1",
+		"fastify": "^4.26.2",
+		"fastify-type-provider-zod": "^1.1.9",
+		"zod": "^3.22.4"
+	}
+}

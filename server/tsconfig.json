@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"declarationDir": "type-check",
+		"emitDeclarationOnly": true,
+		"importHelpers": true,
+		"moduleResolution": "Bundler",
+		//
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		//
+		"target": "ESNext",
+		"module": "ESNext",
+		//
+		"allowUmdGlobalAccess": true,
+		"resolveJsonModule": true,
+		"allowArbitraryExtensions": true,
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"lib": ["ES2023", "DOM"],
+		"noImplicitAny": false,
+		//
+		"outDir": "build",
+		// "declarationMap": true,
+		// "sourceMap": true,
+
+		"plugins": [{ "transform": "transformer-module" }]
+	},
+	"exclude": ["node_modules", "prisma", "build", "type-check"]
+}

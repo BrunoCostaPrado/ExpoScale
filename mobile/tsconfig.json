@@ -1,0 +1,22 @@
+{
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"strict": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"declaration": true,
+		"declarationDir": "types-check",
+		"emitDeclarationOnly": true
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		".expo/types/**/*.ts",
+		"expo-env.d.ts",
+		"src/**/*.ts",
+		"src/**/*.tsx"
+	]
+}

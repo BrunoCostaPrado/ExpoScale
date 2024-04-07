@@ -1,0 +1,40 @@
+version: "1.0"
+name: expo_scale
+services:
+  postgres:
+    # image: postgres:16.2-alpine3.19
+    image: bitnami/postgresql:latest
+    container_name: db-scale
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - scale_pg_data:/bitnami/postgresql
+    networks:
+      - scale
+
+  # api-scale:
+  #   build:
+  #     context: .
+  #   container_name: api-scale
+  #   ports:
+  #     - 3001:3000
+  #   environment:
+  #     - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+  #     - API_BASE_URL=http://localhost:3000
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - scale
+
+networks:
+  scale:
+    driver: bridge
+
+volumes:
+  scale_pg_data:
