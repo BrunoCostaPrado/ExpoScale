@@ -12,7 +12,7 @@ await app.register(cors, {
 	origin: "*"
 })
 
-// app.register(getWeight)
+ app.register(getWeight)
 app.register(setWeight)
 
 async function main() {
